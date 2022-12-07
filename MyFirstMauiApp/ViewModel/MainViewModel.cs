@@ -43,6 +43,14 @@ public partial class MainViewModel : ObservableObject
             Items.Remove(s);
         }
     }
+
+    //20
+    [RelayCommand]
+    async Task Tap(string s)
+    {
+        //22
+        await Shell.Current.GoToAsync($"{nameof(DetailPage)}?Text={s}");
+    }
 }
 
 

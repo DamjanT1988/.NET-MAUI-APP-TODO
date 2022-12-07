@@ -5,7 +5,7 @@
              xmlns:viewmodel="clr-namespace:MyFirstMauiApp.ViewModel"
              x:DataType="viewmodel:MainViewModel">
     
-    <!--1 design the grid-->
+    <!--0 design the grid-->
     <Grid
         RowDefinitions="100, Auto, *"
         ColumnDefinitions=".75*, .25*"
@@ -36,13 +36,17 @@
         <CollectionView
             Grid.Row="2"
             Grid.ColumnSpan="2"
-            ItemsSource="{Binding Items}">
+            ItemsSource="{Binding Items}"
+            SelectionMode="None">
             <!--6 items in view-->
+            
             <!--8 template, data-binding-->
             <CollectionView.ItemTemplate>
+
                 <!--9 data-->
                 <DataTemplate
                     x:DataType="{x:Type x:String}">
+                
                     <!--12 swipe function - delete-->
                     <SwipeView>
                         <SwipeView.RightItems>
@@ -54,14 +58,25 @@
                                 CommandParameter="{Binding .}"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
+                        
+                        <!--10-1 label design-->
                         <Grid
                         Padding="0,65">
-                        <!--10 frame-->
+                            <!--10-2 frame-->
                         <Frame>
+                            <!--19 navigation-->
+                                <Frame.GestureRecognizers>
+                                    <!--21 bind-->
+                                    <TapGestureRecognizer
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=TapCommand}"
+                                    CommandParameter="{Binding .}"/>
+
+                                </Frame.GestureRecognizers>
+                            
                             <!--11 adjust text-->
                             <Label 
                                 Text="{Binding .}"
-                                FontSize="18"/>
+                                FontSize="16"/>
                         </Frame>
                     </Grid>
                     </SwipeView>
