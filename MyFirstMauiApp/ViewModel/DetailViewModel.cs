@@ -1,5 +1,7 @@
 ﻿
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Runtime.CompilerServices;
 
 namespace MyFirstMauiApp.ViewModel
 {
@@ -12,5 +14,12 @@ namespace MyFirstMauiApp.ViewModel
         //24
         [ObservableProperty]
         string text;
+
+        //25
+        [RelayCommand]
+        async Task GoBack()
+        {
+            await Shell.Current.GoToAsync("..");
+        }
     }
 }
