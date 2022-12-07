@@ -49,7 +49,8 @@
                     x:DataType="{x:Type x:String}">
                 
                     <!--12 swipe function - delete-->
-                    <SwipeView>
+                    
+                    <!--<SwipeView>
                         <SwipeView.RightItems>
                             <SwipeItems>
                                 <SwipeItem 
@@ -59,10 +60,15 @@
                                 CommandParameter="{Binding .}"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
-                        
+                        -->
                         <!--10-1 label design-->
                         <Grid
-                        Padding="0,65">
+                        RowDefinitions="100, Auto, *"
+                        ColumnDefinitions=".65*, .15*"
+                        Padding="15"
+                        RowSpacing="15"
+                        ColumnSpacing="15">
+                        
                             <!--10-2 frame-->
                         <Frame>
                             <!--19 navigation-->
@@ -79,8 +85,17 @@
                                 Text="{Binding .}"
                                 FontSize="16"/>
                         </Frame>
+
+                        <Button 
+                                Text="RADERA"
+                                BackgroundColor="Red"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=DeleteCommand}"
+                                CommandParameter="{Binding .}"
+                                Grid.Row="0"
+                                Grid.Column="1"/>
+
                     </Grid>
-                    </SwipeView>
+                    <!--</SwipeView>-->
                 </DataTemplate>
             </CollectionView.ItemTemplate>
             
