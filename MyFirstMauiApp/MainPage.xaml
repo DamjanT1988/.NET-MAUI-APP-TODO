@@ -1,8 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyFirstMauiApp.MainPage">
+             x:Class="MyFirstMauiApp.MainPage"
+             xmlns:viewmodel="clr-namespace:MyFirstMauiApp.ViewModel"
+             x:DataType="viewmodel:MainViewModel">
+    
+    <!--1 design the grid-->
+    <Grid
+        RowDefinitions="100, Auto, *"
+        ColumnDefinitions=".75*, .25*"
+        Padding="15"
+        RowSpacing="15"
+        ColumnSpacing="15">
 
+        <!--2 image-->
+        <Image
+            Grid.ColumnSpan="2"
+            Source="frilaggning01.png"
+            BackgroundColor="DimGrey"/>
+        
+        <!--3 text - bind #1 -->
+        <Entry
+            Placeholder="ange aktivitet.."
+            Text="{Binding Text}"
+            Grid.Row="1"/>
+        
+        <!--4 button-->
+        <Button 
+            Text="Add"
+            Command="{Binding AddCommand}"
+            Grid.Row="1"
+            Grid.Column="1"/>
+        
+        <!--5 view - bind #2-->
+        <CollectionView
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            ItemsSource="{Binding Items}">
+            <!--6 items in view-->
+            <!--8 template, data-binding-->
+            <CollectionView.ItemTemplate>
+                <!--9 data-->
+                <DataTemplate
+                    x:DataType="{x:Type x:String}">
+                    <!--12 swipe function - delete-->
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem 
+                                Text="RADERA"
+                                BackgroundColor="Red"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=DeleteCommand}"
+                                CommandParameter="{Binding .}"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Grid
+                        Padding="0,65">
+                        <!--10 frame-->
+                        <Frame>
+                            <!--11 adjust text-->
+                            <Label 
+                                Text="{Binding .}"
+                                FontSize="18"/>
+                        </Frame>
+                    </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
 
+    </Grid>
 
 </ContentPage>
