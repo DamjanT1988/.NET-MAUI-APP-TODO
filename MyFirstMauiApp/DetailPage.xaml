@@ -8,7 +8,7 @@
     <StackLayout
         BackgroundColor="White"
         Padding="50">
-        <!--26 bind-->
+        <!--26 bind text from main page object; adjust design-->
         <Label 
             Text="{Binding Text}"
             FontSize="27"
@@ -18,7 +18,7 @@
             BackgroundColor="HotPink"
             TextColor="Black"/>
         
-        <!--27-->
+        <!--27 adjust design-->
         <Button
             Text="Tillbaka till listan!"
             FontSize="26"

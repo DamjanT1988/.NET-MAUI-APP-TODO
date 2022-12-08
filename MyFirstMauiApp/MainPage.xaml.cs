@@ -8,7 +8,7 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 
-		//13
+		//13 bind
 		BindingContext = vm;
 	}
 }

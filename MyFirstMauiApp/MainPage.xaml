@@ -57,7 +57,7 @@
                 <DataTemplate
                     x:DataType="{x:Type x:String}">
 
-                    <!--10-1 label design-->
+                    <!--10-1 layout design for TO-DO objects-->
                     <Grid
                         RowDefinitions="100, Auto, *"
                         ColumnDefinitions=".65*, .15*"
@@ -66,19 +66,19 @@
                         ColumnSpacing="75"
                         Margin="5">
 
-                        <!--10-2 frame-->
+                        <!--10-2 frame design for TO-DO objects-->
                         <Frame
                             BackgroundColor="HotPink">
                             <!--19 navigation-->
                             <Frame.GestureRecognizers>
-                                <!--21 bind-->
+                                <!--21 bind with another page, use MainViewModel, tap for navigation-->
                                 <TapGestureRecognizer
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=TapCommand}"
                                     CommandParameter="{Binding .}"/>
 
                             </Frame.GestureRecognizers>
 
-                            <!--11-1 adjust text-->
+                            <!--11-1 adjust TO-DO text-->
                             <Label 
                                 Text="{Binding .}"
                                 FontSize="20"
@@ -86,7 +86,7 @@
                                 TextColor="Black"/>
                         </Frame>
 
-                        <!--11-2 delete button-->
+                        <!--11-2 delete button, bind with MainViewModel, delete command-->
                         <Button 
                                 Text="RADERA"
                                 BackgroundColor="Red"

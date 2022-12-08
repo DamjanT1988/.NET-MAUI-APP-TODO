@@ -24,7 +24,7 @@ public partial class MainViewModel : ObservableObject
 
 
     [RelayCommand]
-    //method
+    //add a TO-DO object - AddCommand-bind
     void Add()
     {
         if (string.IsNullOrWhiteSpace(Text))
@@ -36,6 +36,7 @@ public partial class MainViewModel : ObservableObject
     }
 
     [RelayCommand]
+    //delete a TO-DO object - DeleteCommand-path
     void Delete(string s)
     {
         if(Items.Contains(s))
@@ -44,7 +45,7 @@ public partial class MainViewModel : ObservableObject
         }
     }
 
-    //20
+    //20 navigate to page by tap - TapCommand-path
     [RelayCommand]
     async Task Tap(string s)
     {
@@ -52,27 +53,3 @@ public partial class MainViewModel : ObservableObject
         await Shell.Current.GoToAsync($"{nameof(DetailPage)}?Text={s}");
     }
 }
-
-
-
-/*
-public class MainViewModel : INotifyPropertyChanged
-{
-    string text;
-
-    public string Text
-    {
-        get => text;
-        set
-        {
-            text = value;
-            OnPropertyChanged(nameof(Text));
-        }
-    }
-
-    public event PropertyChangedEventHandler PropertyChanged;
-
-    void OnPropertyChanged(string name) =>
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-}
-*/
