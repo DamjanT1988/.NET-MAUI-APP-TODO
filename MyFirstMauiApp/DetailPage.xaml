@@ -5,17 +5,27 @@
              xmlns:viewmodel="clr-namespace:MyFirstMauiApp.ViewModel"
              x:DataType="viewmodel:DetailViewModel"
              Title="Om uppgiften">
-    <StackLayout>
+    <StackLayout
+        BackgroundColor="White"
+        Padding="50">
         <!--26 bind-->
         <Label 
             Text="{Binding Text}"
             FontSize="27"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            Padding="25"
+            Margin="40"
+            BackgroundColor="HotPink"
+            TextColor="Black"/>
         
         <!--27-->
         <Button
-            Text="Navigera tillbaka!"
+            Text="Tillbaka till listan!"
+            FontSize="26"
+            Padding="25"
+            TextColor="White"
+            BackgroundColor="BlueViolet"
+            FontAttributes="Bold"
             Command="{Binding GoBackCommand}"/>
     </StackLayout>
 </ContentPage>

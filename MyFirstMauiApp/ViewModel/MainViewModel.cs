@@ -22,8 +22,8 @@ public partial class MainViewModel : ObservableObject
     //bind #1
     string text;
 
-    [RelayCommand]
 
+    [RelayCommand]
     //method
     void Add()
     {

@@ -5,102 +5,102 @@
              xmlns:viewmodel="clr-namespace:MyFirstMauiApp.ViewModel"
              x:DataType="viewmodel:MainViewModel"
              Title="Startsida">
-    
+
     <!--0 design the grid-->
     <Grid
         RowDefinitions="100, Auto, *"
         ColumnDefinitions=".75*, .25*"
-        Padding="15"
-        RowSpacing="15"
-        ColumnSpacing="15">
+        Padding="35"
+        RowSpacing="45"
+        ColumnSpacing="35"
+        BackgroundColor="White">
 
         <!--2 image-->
         <Image
             Grid.ColumnSpan="2"
             Source="frilaggning01.png"
-            BackgroundColor="DimGrey"/>
-        
-        <!--3 text - bind #1 -->
+            BackgroundColor="White"
+            Grid.RowSpan="1"
+           />
+
+        <!--3 text - bind user input #1 -->
         <Entry
-            Placeholder="ange aktivitet.."
+            Placeholder="ange aktivitet..."
             Text="{Binding Text}"
-            Grid.Row="1"/>
-        
+            Grid.Row="1"
+            TextColor="Black"
+            BackgroundColor="LightPink"
+            FontSize="26"/>
+
         <!--4 button-->
         <Button 
-            Text="Add"
+            Text="Lägg till!"
             Command="{Binding AddCommand}"
             Grid.Row="1"
-            Grid.Column="1"/>
-        
-        <!--5 view - bind #2-->
+            Grid.Column="1"
+            TextColor="White"
+            BackgroundColor="BlueViolet"
+            FontSize="27"
+            FontAttributes="Bold"/>
+
+        <!--5/6 view - bind #2-->
         <CollectionView
             Grid.Row="2"
             Grid.ColumnSpan="2"
             ItemsSource="{Binding Items}"
             SelectionMode="None">
-            <!--6 items in view-->
-            
+
             <!--8 template, data-binding-->
             <CollectionView.ItemTemplate>
 
                 <!--9 data-->
                 <DataTemplate
                     x:DataType="{x:Type x:String}">
-                
-                    <!--12 swipe function - delete-->
-                    
-                    <!--<SwipeView>
-                        <SwipeView.RightItems>
-                            <SwipeItems>
-                                <SwipeItem 
-                                Text="RADERA"
-                                BackgroundColor="Red"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=DeleteCommand}"
-                                CommandParameter="{Binding .}"/>
-                            </SwipeItems>
-                        </SwipeView.RightItems>
-                        -->
-                        <!--10-1 label design-->
-                        <Grid
+
+                    <!--10-1 label design-->
+                    <Grid
                         RowDefinitions="100, Auto, *"
                         ColumnDefinitions=".65*, .15*"
-                        Padding="15"
-                        RowSpacing="15"
-                        ColumnSpacing="15">
-                        
-                            <!--10-2 frame-->
-                        <Frame>
+                        Padding="0"
+                        RowSpacing="5"
+                        ColumnSpacing="75"
+                        Margin="5">
+
+                        <!--10-2 frame-->
+                        <Frame
+                            BackgroundColor="HotPink">
                             <!--19 navigation-->
-                                <Frame.GestureRecognizers>
-                                    <!--21 bind-->
-                                    <TapGestureRecognizer
+                            <Frame.GestureRecognizers>
+                                <!--21 bind-->
+                                <TapGestureRecognizer
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=TapCommand}"
                                     CommandParameter="{Binding .}"/>
 
-                                </Frame.GestureRecognizers>
-                            
-                            <!--11 adjust text-->
+                            </Frame.GestureRecognizers>
+
+                            <!--11-1 adjust text-->
                             <Label 
                                 Text="{Binding .}"
-                                FontSize="16"/>
+                                FontSize="20"
+                                FontAttributes="Bold"
+                                TextColor="Black"/>
                         </Frame>
 
+                        <!--11-2 delete button-->
                         <Button 
                                 Text="RADERA"
                                 BackgroundColor="Red"
                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=DeleteCommand}"
                                 CommandParameter="{Binding .}"
                                 Grid.Row="0"
-                                Grid.Column="1"/>
+                                Grid.Column="1"
+                                FontSize="18"
+                                FontAttributes="Bold"
+                                TextColor="White"/>
 
                     </Grid>
-                    <!--</SwipeView>-->
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-            
         </CollectionView>
-
     </Grid>
-
 </ContentPage>
