@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace MyFirstMauiApp.ViewModel
 {
-    //23 second parameter is the query identifier, in main view "?Text="
+    //23 second parameter is the query identifier, in main view "?Text, in step 22
     [QueryProperty("Text", "Text")]
 
     //15

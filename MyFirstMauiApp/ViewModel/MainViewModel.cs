@@ -30,8 +30,9 @@ public partial class MainViewModel : ObservableObject
         if (string.IsNullOrWhiteSpace(Text))
             return;
 
+        //add text to item
         Items.Add(Text);
-        //add item
+        //empty item
         Text = string.Empty;
     }
 
@@ -41,6 +42,7 @@ public partial class MainViewModel : ObservableObject
     {
         if(Items.Contains(s))
         {
+            //delete item from collection
             Items.Remove(s);
         }
     }

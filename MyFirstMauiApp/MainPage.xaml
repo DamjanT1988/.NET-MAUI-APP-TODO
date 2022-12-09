@@ -69,6 +69,7 @@
                         <!--10-2 frame design for TO-DO objects-->
                         <Frame
                             BackgroundColor="HotPink">
+              
                             <!--19 navigation-->
                             <Frame.GestureRecognizers>
                                 <!--21 bind with another page, use MainViewModel, tap for navigation-->
