@@ -22,7 +22,6 @@ public partial class MainViewModel : ObservableObject
     //bind #1
     string text;
 
-
     [RelayCommand]
     //add a TO-DO object - AddCommand-bind
     void Add()

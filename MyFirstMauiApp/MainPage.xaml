@@ -6,6 +6,11 @@
              x:DataType="viewmodel:MainViewModel"
              Title="Startsida">
 
+    <!--
+    xmlns = scheme
+    Canvas = container
+    -->
+    
     <!--0 design the grid-->
     <Grid
         RowDefinitions="100, Auto, *"
